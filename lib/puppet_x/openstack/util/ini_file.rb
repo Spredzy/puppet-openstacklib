@@ -1,4 +1,4 @@
-require 'puppet/util/inifile'
+require 'puppet/util/ini_file'
 
 module PuppetX
   module Openstack
