@@ -14,6 +14,10 @@ Puppet::Type.type(:openstack_config).provide(
     resource[:name].split('/', 2).last
   end
 
+  def ensure_absent_val
+    resource[:ensure_absent_val]
+  end
+
   def separator
     '='
   end
@@ -24,7 +28,7 @@ Puppet::Type.type(:openstack_config).provide(
 
   private
   def ini_file
-    @ini_file ||= PuppetX::Openstack::Util::IniFile.new(file_path, separator, section_prefix, section_suffix)
+    @ini_file ||= PuppetX::Openstack::Util::IniFile.new(file_path, separator, section_prefix, section_suffix, ensure_absent_val)
   end
 
 end
